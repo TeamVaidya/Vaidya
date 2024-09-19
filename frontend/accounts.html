@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="accounts.css">
+</head>
+<body>
+    <header>
+        <div id="header">
+            <nav>
+                <button id="sidebar-toggle">☰</button>
+                <h1 id="welcome">Vaidya</h1>
+            </nav>
+        </div>
+    </header>
+    <div id="sidebar" class="sidebar">
+        <a class="closebtn" onclick="closeSidebar()">&times;</a>
+        <a href="#">Home</a>
+        <a href="ums.html">UMS</a>
+        <a href="#">Appointments</a>
+        <a href="#">Doctors</a>
+        <a href="#">Contact Us</a>
+        <a href="accounts.html">Login/Signup</a>
+    </div>
+
+    <!-- Message Container -->
+    <div id="message-container" style="display: none;">
+        <p id="message-text"></p>
+        <p id="loading-text" style="display: none;">Loading...</p>
+    </div>
+
+    <div id="forms">
+        <!-- Doctor Registration Form -->
+        <div id="doctor-registration" class="form-container">
+            <h2>Doctor Registration</h2>
+            <form id="doctor-registration-form">
+                <input type="text" id="doctor-fullName" placeholder="Full Name" required>
+                <input type="email" id="doctor-userEmail" placeholder="Email" required>
+                <input type="text" id="user-aadharNo" placeholder="Aadhar Number" required>
+                <input type="text" id="doctor-specialization" placeholder="Specialization" required>
+                <input type="text" id="doctor-qualification" placeholder="Qualification" required>
+                <input type="number" id="doctor-experience" placeholder="Experience (years)" required>
+                <input type="text" id="doctor-address" placeholder="Address" required>
+                <input type="tel" id="doctor-phoneNo" placeholder="Phone Number" required>
+                <select id="doctor-gender" required>
+                    <option value="" disabled selected>Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+                <input type="password" id="doctor-password" placeholder="Password" required>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+        
+        
+  
+        
+        <!-- Login Form -->
+        <div id="login-form" class="form-container">
+            <h2>Login</h2>
+            <form id="login-form">
+                <input type="email" id="login-email" placeholder="Email" required>
+                <input type="password" id="login-password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="doctor-details" class="details-box"></div>
+    <button id="logout-btn" style="display:none;">Logout</button>
+
+    <!-- Buttons container -->
+    <div class="buttons-container">
+        <button id="register-doctor-btn">Doctor Registration</button>
+        <button id="login-btn">Login</button>
+    </div>
+
+    <footer>&copy; copyright 2024 || All rights reserved</footer>
+    <script src="accounts.js"></script>
+</body>
+</html>

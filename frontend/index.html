@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+      
+        #filter-form {
+            display: none;
+            margin-top: 10px;
+        }
+        #filter-form label {
+            display: block;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="header">
+            <nav>
+                <button id="sidebar-toggle">☰</button>
+                <h1 id="welcome">Vaidya </h1>
+            </nav>   
+        </div>
+    </header>
+    <div id="sidebar" class="sidebar">
+        <a class="closebtn" onclick="closeSidebar()">&times;</a>
+        <a href="index.html">Home</a>
+        <a href="ums.html">UMS</a>
+        <a href="appointments.html" id="appointments-link">Appointments</a>
+        <a href="#">Doctors</a>
+        <a href="#">Contact Us</a>
+        <a href="accounts.html">Login/Signup</a>
+    </div>
+    <footer>&copy; copyright 2024 || Vaidya </footer>
+    
+
+    <script src="index.js"></script>
+</body>
+</html>

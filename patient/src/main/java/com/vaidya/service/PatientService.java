@@ -1,6 +1,7 @@
 package com.vaidya.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.vaidya.entity.Patient;
 
@@ -11,4 +12,5 @@ public interface PatientService {
     Patient updatePatient(Long id, Patient patient);
     void deletePatient(Long id);
     List<Patient> getPatientsByMobileNo(String mobileNo);
+	Optional<Patient> getPatientBySlotId(Long slotId);
 	}

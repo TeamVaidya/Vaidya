@@ -1,6 +1,7 @@
 package com.vaidya.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -60,5 +61,10 @@ public class PatientController {
     @GetMapping("/search1")
     public List<Patient> getPatientsByMobileNo(@RequestParam("mobileNo") String mobileNo) {
         return patientService.getPatientsByMobileNo(mobileNo);
+    }
+    @GetMapping("/slot/{slotId}")
+    public ResponseEntity<Patient> getPatientBySlotId(@PathVariable Long slotId) {
+        Optional<Patient> patient = patientService.getPatientBySlotId(slotId);
+        return patient.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 }

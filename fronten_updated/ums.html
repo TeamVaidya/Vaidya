@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UMS</title>
+    <link rel="stylesheet" href="ums.css">
+    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+      
+      
+</head>
+<body>
+    <header>
+        <div id="header">
+            <nav>
+                <button id="sidebar-toggle">☰</button>
+                <h1 id="welcome">Welcome to Vaidya Application</h1>
+            </nav>   
+        </div>
+    </header>
+    <div id="sidebar" class="sidebar">
+        <a class="closebtn" onclick="closeSidebar()">&times;</a>
+        <a href="index.html">Home</a>
+        <a href="ums.html">UMS</a>
+        <a href="appointments.html">Appointments</a>
+        <a href="#">Doctors</a>
+        <a href="#">Contact Us</a>
+        <a href="accounts.html">Login/Signup</a>
+    </div>
+    <div id="content">
+        <div class="user-container">
+            <table class="user-table" id="user-table">
+                <thead>
+                    <tr>
+                        <th class="select-user">Select User</th>
+                        <th>User ID</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Role ID</th>
+                    </tr>
+                </thead>
+                <tbody id="user-table-body">
+                    <!-- User rows will be injected here by JavaScript -->
+                </tbody>
+            </table>
+
+            <div class="button-container" id="action-buttons" style="display: none;">
+                <button id="edit-button">Edit</button>
+                <button id="delete-button">Delete</button>
+            </div>
+            <div class="controls-container">
+                <div class="button-container" id="button-container">
+                    <button id="remove-filters-button">Default</button>
+                    <button id="filter-button"><i class="fas fa-search"></i></button>
+                </div>
+                <div id="pagination-controls">
+                    <button id="prev-page" disabled>Previous</button>
+                    <span id="page-info"></span>
+                    <button id="next-page">Next</button>
+                </div>
+            </div>
+
+           
+        </div>
+
+    </div>
+    <footer>&copy; copyright 2024 || All rights reserved Vaidya Application</footer>
+
+    
+    <script src="ums.js"></script>
+</body>
+</html>

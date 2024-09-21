@@ -31,11 +31,18 @@ public class PatientServiceImpl implements PatientService {
 
     @Override
     public Patient savePatient(Patient patient) {
-        // Fetch the Doctor and Slot entities
+        // Fetch the Doctor entity
         Doctor doctor = doctorRepository.findById(patient.getDoctor().getUserId())
                 .orElseThrow(() -> new RuntimeException("Doctor not found"));
+
+        // Fetch the Slot entity
         Slot slot = slotRepository.findById(patient.getSlot().getSlotId())
                 .orElseThrow(() -> new RuntimeException("Slot not found"));
+
+        // Check if the slot is available
+        if ("no".equals(slot.getStatus())) {
+            throw new RuntimeException("Slot is not available");
+        }
 
         // Set Doctor and Slot in Patient entity
         patient.setDoctor(doctor);
@@ -44,6 +51,7 @@ public class PatientServiceImpl implements PatientService {
         // Save the Patient entity
         return patientRepository.save(patient);
     }
+
 
     @Override
     public List<Patient> getAllPatients() {
@@ -78,6 +86,8 @@ public class PatientServiceImpl implements PatientService {
     public List<Patient> getPatientsByMobileNo(String mobileNo) {
         return patientRepository.findByMobileNo(mobileNo);
     }
-   
+    public Optional<Patient> getPatientBySlotId(Long slotId) {
+        return patientRepository.findBySlot_SlotId(slotId);
+    }
    
 }

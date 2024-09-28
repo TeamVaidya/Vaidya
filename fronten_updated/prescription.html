@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prescription</title>
+    <link rel="stylesheet" href="prescription.css">
+</head>
+<body>
+    <header>
+        <div id="header">
+            <nav>
+                <button id="sidebar-toggle">☰</button>
+                <h1 id="welcome">Vaidya</h1>
+            </nav>   
+        </div>
+    </header>
+
+    <div id="sidebar" class="sidebar">
+        <a class="closebtn" onclick="closeSidebar()">&times;</a>
+        <a href="index.html">Home</a>
+        <a href="ums.html">UMS</a>
+        <a href="appointments.html" id="appointments-link">Appointments</a>
+        <a href="prescription.html">Prescription</a>
+        <a href="#">Doctors</a>
+        <a href="#">Contact Us</a>
+        <a href="accounts.html">Login/Signup</a>
+    </div>
+
+    <div id="content">
+        <div class="user-container">
+            <table class="user-table" id="user-table">
+                <thead>
+                    <tr>
+                        <th>Patient Name</th>
+                        <th>Mobile No</th>
+                        <th>Consultation</th>
+                        <th>Date</th>
+                        <th>Prescription</th>
+                    </tr>
+                </thead>
+                <tbody id="user-table-body">
+                    <!-- User rows will be injected here by JavaScript -->
+                </tbody>
+               
+            </table>
+        </div>
+    </div>
+    
+
+    <!-- Modal for viewing patient details -->
+<div id="patient-detail-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Patient Details</h2>
+        <p><strong>Clinic Name:</strong> <span id="clinic-name"></span></p>
+        <p><strong>Timings:</strong> <span id="timings"></span></p>
+        <p><strong>Phone Number:</strong> <span id="phone-number"></span></p>
+        <h3>Patient Information</h3>
+        <p><strong>Name:</strong> <span id="patient-name"></span></p>
+        <p><strong>Patient ID:</strong> <span id="patient-id"></span></p>
+        <p><strong>Gender:</strong> <span id="gender"></span></p>
+        <p><strong>Age:</strong> <span id="age"></span></p>
+        <p><strong>Mobile:</strong> <span id="mobile"></span></p>
+        <h3>Symptoms</h3>
+        <p><strong>Fever:</strong> <span id="fever"></span></p>
+        <p><strong>BP:</strong> <span id="bp"></span></p>
+        <p><strong>Weight:</strong> <span id="weight"></span></p>
+        <p><strong>Sugar:</strong> <span id="sugar"></span></p>
+        <p><strong>History:</strong> <span id="history"></span></p>
+        <p><strong>Test:</strong> <span id="test"></span></p>
+        <p><strong>Medicine:</strong> <span id="medicine"></span></p>
+    </div>
+</div>
+
+    <footer>&copy; copyright 2024 || Vaidya</footer>
+
+    <script src="prescription.js"></script>
+</body>
+</html>

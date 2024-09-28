@@ -1,11 +1,12 @@
 package com.vaidya.serviceImpl;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.vaidya.entity.Doctor;
 import com.vaidya.entity.Patient;
@@ -89,5 +90,18 @@ public class PatientServiceImpl implements PatientService {
     public Optional<Patient> getPatientBySlotId(Long slotId) {
         return patientRepository.findBySlot_SlotId(slotId);
     }
-   
+    @Override
+    public List<Patient> getPatientsByDoctorUserId(Long userId) {
+        return patientRepository.findByDoctorUserId(userId);
+    }
+    
+
+    @Override
+    public List<Patient> getPatientsByDoctorUserIdAndDate(Long userId, LocalDate date) {
+        LocalDateTime startOfDay = date.atStartOfDay();
+        LocalDateTime endOfDay = date.atTime(LocalTime.MAX);
+
+        return patientRepository.findByDoctorUserIdAndDateTimeBetween(userId, startOfDay, endOfDay);
+    }
+
 }

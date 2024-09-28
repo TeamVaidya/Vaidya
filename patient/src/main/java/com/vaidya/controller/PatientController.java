@@ -1,8 +1,10 @@
 package com.vaidya.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -67,4 +69,31 @@ public class PatientController {
         Optional<Patient> patient = patientService.getPatientBySlotId(slotId);
         return patient.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
+    
+    @GetMapping("/doctor/{userId}")
+    public ResponseEntity<List<Patient>> getPatientsByDoctorUserId(@PathVariable Long userId) {
+        List<Patient> patients = patientService.getPatientsByDoctorUserId(userId);
+        if (patients.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.ok(patients);
+        }
+    }
+    
+    @GetMapping("/doctor/{userId}/date/{date}")
+    public ResponseEntity<List<Patient>> getPatientsByDoctorUserIdAndDate(
+        @PathVariable Long userId,
+        @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) String date) {
+        
+        // Trim the date parameter to avoid extra characters
+        LocalDate parsedDate = LocalDate.parse(date.trim());
+        
+        List<Patient> patients = patientService.getPatientsByDoctorUserIdAndDate(userId, parsedDate);
+        if (patients.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.ok(patients);
+        }
+    }
+
 }

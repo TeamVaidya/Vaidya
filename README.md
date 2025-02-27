@@ -24,7 +24,7 @@ graph TD
   B --> F[User Management System]
   B --> G[Slot Service]
   C -->|Data| H[Database Cluster]
-  classDef default fill:#f9f,stroke:#333,stroke-width:2px;
+  classDef default fill:#f9f,stroke:#333,stroke-width:2px;;
 ```
   
 

@@ -255,4 +255,5 @@ Vaidya isn’t just a healthcare platform—it’s a symphony of innovation blen
 - Develop a patient portal with React. 🌟
 - Deploy with Kubernetes for high availability. 🛡️
 - Enhance monitoring with AI-driven insights. 🤖
-- Integration with Telemedicine.💊
+- Integration with Telemedicine and data mining.💊
+- Mobile application Development. 📲
